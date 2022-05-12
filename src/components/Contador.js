@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { PropTypes } from "prop-types";
 
 const Contador = ({ generateTime }) => {
   const defaultTime = {
@@ -6,11 +7,15 @@ const Contador = ({ generateTime }) => {
     minutes: "00",
   };
 
-  const [timer, setTimer] = useState(defaultTime);
+  Contador.propTypes = {
+    generateTime: PropTypes.number,
+  };
+
+  const [timer] = useState(defaultTime);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      updateTime();
+      updateTime(generateTime);
     }, 1000);
     return () => clearTimeout(interval);
   }, []);
