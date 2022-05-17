@@ -1,9 +1,9 @@
 html {
   overflow-x: hidden;
   box-sizing: border-box;
-  font-family: "Arimo", sans-serif;
-  font-family: "Inconsolata", monospace;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Arimo', sans-serif;
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   scroll-behavior: smooth;
 }
@@ -149,6 +149,21 @@ img {
   cursor: pointer;
   padding: 0.75rem 1.2rem;
   width: auto;
+}
+
+.card__btn-link {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.75rem 1.2rem;
+  width: auto;
+  /* pointer-events: none; */
+}
+
+.expired {
+  color: red;
 }
 
 .card__contador {
