@@ -14,8 +14,6 @@
   "plugins": ["react", "prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "react/react-in-jsx-scope": "off",
-    "singleQuote": true,
-    "parser": "flow"
+    "react/react-in-jsx-scope": "off"
   }
 }

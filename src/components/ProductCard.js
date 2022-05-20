@@ -1,19 +1,9 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useContext } from 'react';
 import Card from './Card';
+import DataContext from './DataContext';
 
 const ProductCard = () => {
-  const [card, setCard] = useState([]);
-
-  useEffect(() => {
-    const getCard = async () => {
-      const url = 'https://fakestoreapi.com/products';
-      const result = await axios.get(url);
-      setCard(result.data);
-    };
-    getCard();
-  }, []);
-
+  const { card } = useContext(DataContext);
   return (
     <>
       {card.length === 0 ? (
