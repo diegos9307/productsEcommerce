@@ -20,7 +20,9 @@ const Card = ({ el }) => {
   return (
     <div>
       <div className="card" key={el.id}>
-        <img src={el.image} alt="Product" />
+        <div className="card__media">
+          <img src={el.image} alt="Product" />
+        </div>
         <div className="card__content">
           <h4 className="card__title">{el.title}</h4>
           <div className="card__buttons">

@@ -120,9 +120,17 @@ img {
   border-radius: 1rem;
 }
 
+.card__media {
+  padding: 1rem;
+  align-content: center;
+}
+
 .card img {
-  width: 100%;
+  object-fit: contain;
   height: 180px;
+  border-radius: 1rem;
+  display: block;
+  margin: auto;
 }
 
 .card__content {
