@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import Contador from './Contador';
@@ -14,6 +15,8 @@ const Card = ({ el }) => {
 
   const targetTime = now_ml + generateTime;
 
+  const [active, setActive] = useState(false);
+
   return (
     <div>
       <div className="card" key={el.id}>
@@ -21,8 +24,11 @@ const Card = ({ el }) => {
         <div className="card__content">
           <h4 className="card__title">{el.title}</h4>
           <div className="card__buttons">
-            <Contador targetTime={targetTime} />
-            <Link to={`/detail/${el.id}`} className="card__btn-link">
+            <Contador targetTime={targetTime} setActive={setActive} />
+            <Link
+              to={`/detail/${el.id}`}
+              className="card__btn-link"
+              style={active === false ? null : { pointerEvents: 'none' }}>
               Ir a detalles
             </Link>
           </div>

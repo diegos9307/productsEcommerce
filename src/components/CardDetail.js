@@ -26,7 +26,7 @@ const CardDetail = ({ detailCard }) => {
         <div className="detailCard__subline">
           <div>
             <span className="detailCard__subtitle">Precio: </span>
-            <span className="detailCard__number">{detailCard.price}</span>
+            <span className="detailCard__number">{detailCard.price} $</span>
           </div>
           <div>
             <span className="detailCard__subtitle">Rate: </span>
