@@ -311,6 +311,14 @@ img {
   color: #14192d;
 }
 
+.form__subtitle {
+  margin: 1rem 0;
+}
+
+.form__subtitle span {
+  color: #14192d;
+}
+
 .form__media {
   width: 100%;
   height: auto;
@@ -333,6 +341,26 @@ img {
 .form__error {
   color: black;
   font-weight: bold;
+}
+
+.form__title-login {
+  font-size: 2rem;
+  color: #14192d;
+  margin: 1rem;
+}
+
+.form__content-login {
+  margin: 1rem;
+}
+
+.btn-login {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.75rem 1.2rem;
+  width: 100%;
 }
 
 input[type='text'],
