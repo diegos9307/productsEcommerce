@@ -379,28 +379,6 @@ input[type='password'] {
   background-color: transparent;
 }
 
-.error404 {
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
-}
-
-.error404__number {
-  font-size: 160px;
-  margin: 0;
-  font-weight: 900;
-  letter-spacing: 20px;
-  color: #111827;
-}
-
-.error404__content {
-  font-size: 1.5rem;
-  margin: 1rem;
-  padding-bottom: 2rem;
-}
-
 @media (max-width: 700px) {
   .navBar__items {
     position: absolute;
