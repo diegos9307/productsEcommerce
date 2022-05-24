@@ -29,7 +29,7 @@ const Card = ({ el }) => {
             <Contador targetTime={targetTime} setActive={setActive} />
             <Link
               to={`/detail/${el.id}`}
-              className="card__btn-link"
+              className="btn"
               style={active === false ? null : { pointerEvents: 'none' }}>
               Ir a detalles
             </Link>
