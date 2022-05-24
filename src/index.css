@@ -379,13 +379,26 @@ input[type='password'] {
   background-color: transparent;
 }
 
-.aboutInfo {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  padding: 1rem;
-  background-color: rgba(154, 158, 185, 0.2);
+.error404 {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.error404__number {
+  font-size: 160px;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 20px;
+  color: #111827;
+}
+
+.error404__content {
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding-bottom: 2rem;
 }
 
 @media (max-width: 700px) {
