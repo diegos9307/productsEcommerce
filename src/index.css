@@ -1,9 +1,9 @@
 html {
   overflow-x: hidden;
   box-sizing: border-box;
-  font-family: "Arimo", sans-serif;
-  font-family: "Inconsolata", monospace;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Arimo', sans-serif;
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   scroll-behavior: smooth;
 }
@@ -94,4 +94,154 @@ img {
   font-weight: bold;
   text-align: center;
   color: whitesmoke;
+}
+
+.subtitle_centered {
+  text-align: center;
+  padding: 1rem;
+}
+
+.container__card {
+  display: flex;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  padding: 1rem;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 250px;
+  margin: 0.5rem;
+  background-color: rgba(154, 158, 185, 0.2);
+  border-radius: 1rem;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+}
+
+.card__content {
+  width: inherit;
+  height: auto;
+  padding: 0.5rem;
+}
+
+.card__title {
+  padding: 0.5rem;
+}
+
+.card__buttons {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__btn {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.75rem 1.2rem;
+  width: auto;
+}
+
+.card__btn-link {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.75rem 1.2rem;
+  width: auto;
+  /* pointer-events: none; */
+}
+
+.expired {
+  color: red;
+}
+
+.card__contador {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.75rem 1.2rem;
+  width: auto;
+}
+
+.detailCard {
+  background-color: #fff;
+  padding: 1rem;
+  max-width: 600px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 2px 10px 0 rgb(0, 0, 0, 0.5);
+}
+
+.detailCard__body {
+  width: 50%;
+  margin: 0.5rem;
+  height: 100%;
+}
+
+.detailCard__title {
+  line-height: 2rem;
+  height: 20%;
+  margin: 10px 0;
+}
+
+.detailCard__description {
+  display: inline-block;
+  line-height: 1.5rem;
+  margin-bottom: 10px;
+  color: #aaa;
+  height: 60%;
+}
+
+.detailCard__media {
+  width: 50%;
+  padding: 1.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.detailCard__media img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}
+
+.detailCard__category {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0, 1);
+}
+
+.detailCard__subtitle {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0, 1);
+}
+
+.detailCard__subline {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailCard__number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #aaa;
 }
