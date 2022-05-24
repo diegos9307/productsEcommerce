@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   return (
@@ -6,9 +6,8 @@ const LandingPage = () => {
       <div className="landing__container">
         <h1 className="">Products Ecommerce</h1>
         <p>
-          Bienvenid@s a <i>Products Ecommerce.</i> Este es un sitio donde
-          encontrarás todo tipo de productos especiales disponibles a la compra
-          en modo subasta.
+          Bienvenid@s a <i>Products Ecommerce.</i> Este es un sitio donde encontrarás todo tipo de
+          productos especiales disponibles a la compra en modo subasta.
         </p>
         <Link to="/register" className="landing__links">
           Register
