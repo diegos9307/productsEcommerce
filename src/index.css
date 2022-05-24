@@ -297,7 +297,7 @@ img {
 }
 
 .form__container {
-  max-width: 600px;
+  max-width: 400px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -423,5 +423,14 @@ input[type='password'] {
 
   .navBar__toggle.open > .navBar__bar::after {
     transform: rotate(-45deg) translate(26px, 26px);
+  }
+
+  .form__container {
+    max-width: 400px;
+    margin: 3rem;
+
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(154, 158, 185, 0.2);
   }
 }

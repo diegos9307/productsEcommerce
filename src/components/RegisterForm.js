@@ -65,7 +65,11 @@ const RegisterForm = () => {
           value={form.name}
           required
         />
-        {errors.name && <p className="form__error">{errors.name}</p>}
+        {errors.name && (
+          <p className="form__error">
+            <i className="fa-solid fa-circle-exclamation"></i> {errors.name}
+          </p>
+        )}
         <input
           type="email"
           name="email"
@@ -75,7 +79,12 @@ const RegisterForm = () => {
           value={form.email}
           required
         />
-        {errors.email && <p className="form__error">{errors.email}</p>}
+        {errors.email && (
+          <p className="form__error">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {errors.email}
+          </p>
+        )}
         <input
           type="password"
           name="password"
@@ -85,7 +94,12 @@ const RegisterForm = () => {
           value={form.password}
           required
         />
-        {errors.password && <p className="form__error">{errors.password}</p>}
+        {errors.password && (
+          <p className="form__error">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {errors.password}
+          </p>
+        )}
         <input
           type="password"
           name="confirmpassword"
@@ -95,7 +109,12 @@ const RegisterForm = () => {
           value={form.confirmpassword}
           required
         />
-        {errors.confirmpassword && <p className="form__error">{errors.confirmpassword}</p>}
+        {errors.confirmpassword && (
+          <p className="form__error">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {errors.confirmpassword}
+          </p>
+        )}
         <label html="terminos">Acepto términos y condiciones</label>
         <input
           type="checkbox"
@@ -105,9 +124,14 @@ const RegisterForm = () => {
           value={form.terminos}
           required
         />
-        {errors.terminos && <p className="form__error">{errors.terminos}</p>}
+        {errors.terminos && (
+          <p className="form__error">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {errors.terminos}
+          </p>
+        )}
         <div className="form__button">
-          <input type="submit" value="Enviar" className="btn" />
+          <input type="submit" value="Únete" className="btn" />
         </div>
       </form>
     </div>
