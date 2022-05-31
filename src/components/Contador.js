@@ -1,21 +1,22 @@
+/* eslint-disable react/prop-types */
+import { useEffect } from 'react';
 import { useCountdown } from '../hooks/useCountDown';
-import { PropTypes } from 'prop-types';
 import ExpiredTime from './ExpiredTime';
 import ShowCounter from './ShowCounter';
 
-const Contador = ({ targetTime, setActive }) => {
-  Contador.propTypes = {
-    targetTime: PropTypes.number,
-    setActive: PropTypes.func
-  };
+const Contador = ({ targetTime, active, setActive }) => {
+  const [minutes, seconds, isFinished] = useCountdown(targetTime);
+  useEffect(() => {
+    function handleClick() {}
+    handleClick();
+  }, []);
 
-  const [minutes, seconds] = useCountdown(targetTime);
+  useEffect(() => {
+    isFinished && setActive(true);
+    // console.log('Entro en useEffect');
+  }, [isFinished]);
 
-  if (minutes + seconds <= 0) {
-    return <ExpiredTime setActive={setActive(true)} />;
-  } else {
-    return <ShowCounter minutes={minutes} seconds={seconds} />;
-  }
+  return active ? <ExpiredTime /> : <ShowCounter minutes={minutes} seconds={seconds} />;
 };
 
 export default Contador;

@@ -26,11 +26,11 @@ const Card = ({ el }) => {
         <div className="card__content">
           <h4 className="card__title">{el.title}</h4>
           <div className="card__buttons">
-            <Contador targetTime={targetTime} setActive={setActive} />
+            <Contador targetTime={targetTime} setActive={setActive} active={active} />
             <Link
               to={`/detail/${el.id}`}
               className="btn"
-              style={active === false ? null : { pointerEvents: 'none' }}>
+              style={!active ? null : { display: 'none' }}>
               Ir a detalles
             </Link>
           </div>
