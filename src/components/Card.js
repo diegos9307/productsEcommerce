@@ -1,13 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
 import Contador from './Contador';
 
 const Card = ({ el }) => {
-  Card.propTypes = {
-    el: PropTypes.object
-  };
-
   const generateTime = ((min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
   })(120000, 240000);

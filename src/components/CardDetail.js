@@ -1,13 +1,8 @@
-import { PropTypes } from 'prop-types';
-
 const capitalizarPrimeraLetra = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
 const CardDetail = ({ detailCard }) => {
-  CardDetail.propTypes = {
-    detailCard: PropTypes.object
-  };
   return (
     <div className="detailCard">
       <div className="detailCard__body">
