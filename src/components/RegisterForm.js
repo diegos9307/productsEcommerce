@@ -2,11 +2,11 @@
 import { useForm } from '../hooks/useForm';
 
 const initialForm = {
-  name: '',
+  username: '',
   email: '',
   password: '',
   confirmpassword: '',
-  terminos: false
+  terms: false
 };
 
 const validationsForm = (form) => {
@@ -15,10 +15,10 @@ const validationsForm = (form) => {
   let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
   let regexPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
 
-  if (!form.name.trim()) {
-    errors.name = "El campo 'Nombre' es requerido";
-  } else if (!regexName.test(form.name.trim())) {
-    errors.name = "El campo 'Nombre' sólo acepta letras y espacios en blanco";
+  if (!form.username.trim()) {
+    errors.username = "El campo 'Nombre' es requerido";
+  } else if (!regexName.test(form.username.trim())) {
+    errors.username = "El campo 'Nombre' sólo acepta letras y espacios en blanco";
   }
 
   if (!form.email.trim()) {
@@ -40,34 +40,42 @@ const validationsForm = (form) => {
     errors.confirmpassword = 'Las contraseñas no coinden';
   }
 
-  if (!form.terminos) {
-    errors.terminos = "El campo 'Terminos' es requerido";
+  if (!form.terms) {
+    errors.terms = "El campo 'Terminos' es requerido";
   }
   return errors;
 };
 
 const RegisterForm = () => {
-  const { form, errors, loading, response, handleChange, handleBlur, handleSubmit, handleChecked } =
-    useForm(initialForm, validationsForm);
+  const {
+    form,
+    errors,
+    loading,
+    response,
+    handleChange,
+    handleBlur,
+    handleSubmitRegister,
+    handleChecked
+  } = useForm(initialForm, validationsForm);
   return (
     <div className="form__container">
       <div className="form__media">
         <h2 className="form__title">Crea tu cuenta</h2>
         <img src="https://cdn-icons-png.flaticon.com/512/476/476863.png" alt="Product" />
       </div>
-      <form className="form__content" onSubmit={handleSubmit}>
+      <form className="form__content" action="/login" method="GET" onSubmit={handleSubmitRegister}>
         <input
           type="text"
-          name="name"
+          name="username"
           placeholder="Escribe tu nombre"
           onBlur={handleBlur}
           onChange={handleChange}
-          value={form.name}
+          value={form.username}
           required
         />
-        {errors.name && (
+        {errors.username && (
           <p className="form__error">
-            <i className="fa-solid fa-circle-exclamation"></i> {errors.name}
+            <i className="fa-solid fa-circle-exclamation"></i> {errors.username}
           </p>
         )}
         <input
@@ -115,19 +123,19 @@ const RegisterForm = () => {
             {errors.confirmpassword}
           </p>
         )}
-        <label html="terminos">Acepto términos y condiciones</label>
+        <label html="terms">Acepto términos y condiciones</label>
         <input
           type="checkbox"
-          name="terminos"
+          name="terms"
           onBlur={handleBlur}
           onChange={handleChecked}
-          value={form.terminos}
+          value={form.terms}
           required
         />
-        {errors.terminos && (
+        {errors.terms && (
           <p className="form__error">
             <i className="fa-solid fa-circle-exclamation"></i>
-            {errors.terminos}
+            {errors.terms}
           </p>
         )}
         <div className="form__button">

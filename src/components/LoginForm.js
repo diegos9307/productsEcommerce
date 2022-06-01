@@ -9,19 +9,22 @@ const initialForm = {
 
 const validationsForm = (form) => {
   let errors = {};
+  let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
 
   if (!form.email.trim()) {
-    errors.email = 'El correo no está registrado';
+    errors.email = "El campo 'Correo' es requerido";
+  } else if (!regexEmail.test(form.email.trim())) {
+    errors.email = "El campo 'Correo' es incorrecto";
   }
 
   if (!form.password.trim()) {
-    errors.password = 'La contraseña no está resgistrada';
+    errors.password = "El campo 'Contraseña' es requerido";
   }
   return errors;
 };
 
 const LoginForm = () => {
-  const { form, errors, loading, response, handleChange, handleBlur, handleSubmit } = useForm(
+  const { form, errors, loading, response, handleChange, handleBlur, handleSubmitLogin } = useForm(
     initialForm,
     validationsForm
   );
@@ -34,7 +37,7 @@ const LoginForm = () => {
           alt="Product"
         />
       </div>
-      <form className="form__content-login" onSubmit={handleSubmit}>
+      <form className="form__content-login" onSubmit={handleSubmitLogin}>
         <input
           type="email"
           name="email"

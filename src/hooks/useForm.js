@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
+import axios from 'axios';
 
 export const useForm = (initialForm, validateForm) => {
   const [form, setForm] = useState(initialForm);
@@ -17,11 +18,27 @@ export const useForm = (initialForm, validateForm) => {
     handleChange(e);
     setErrors(validateForm(form));
   };
-  const handleSubmit = (e) => {
+  const handleSubmitRegister = (e) => {
+    setErrors(validateForm(form));
+    if (Object.keys(errors).length === 0) {
+      alert('Enviando Formulario');
+      axios
+        .post('http://localhost:5000/register', form)
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err));
+    } else {
+      return;
+    }
+  };
+  const handleSubmitLogin = (e) => {
     e.preventDefault();
     setErrors(validateForm(form));
     if (Object.keys(errors).length === 0) {
       alert('Enviando Formulario');
+      axios
+        .post('http://localhost:5000/login', form)
+        .then((response) => console.log(response.data))
+        .catch((err) => console.log(err));
     } else {
       return;
     }
@@ -34,7 +51,8 @@ export const useForm = (initialForm, validateForm) => {
     response,
     handleChange,
     handleBlur,
-    handleSubmit,
-    handleChecked
+    handleChecked,
+    handleSubmitLogin,
+    handleSubmitRegister
   };
 };
