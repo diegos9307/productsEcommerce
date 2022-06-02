@@ -1,7 +1,11 @@
+import LoginForm from '../components/LoginForm';
+import NavigationBar from '../components/NavigationBar';
+
 const Login = () => {
   return (
     <div>
-      <h2>Login</h2>
+      <NavigationBar />
+      <LoginForm />
     </div>
   );
 };

@@ -1,7 +1,16 @@
+import NavigationBar from '../components/NavigationBar';
+import ProductCard from '../components/ProductCard';
+
 const Home = () => {
   return (
     <div>
-      <h2>Home</h2>
+      <NavigationBar />
+      <header>
+        <h2 className="subtitle_centered">Productos</h2>
+      </header>
+      <div className="container__card">
+        <ProductCard />
+      </div>
     </div>
   );
 };
