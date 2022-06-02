@@ -20,7 +20,7 @@ const Card = ({ el }) => {
         </div>
         <div className="card__content">
           <h4 className="card__title">{el.title}</h4>
-          <div className="card__buttons">
+          <div className="btn__container">
             <Contador targetTime={targetTime} setActive={setActive} active={active} />
             <Link
               to={`/detail/${el.id}`}
