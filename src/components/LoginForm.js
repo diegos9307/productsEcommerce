@@ -37,7 +37,11 @@ const LoginForm = () => {
           alt="Product"
         />
       </div>
-      <form className="form__content-login" onSubmit={handleSubmitLogin}>
+      <form
+        className="form__content-login"
+        action="/home"
+        method="GET"
+        onSubmit={handleSubmitLogin}>
         <input
           type="email"
           name="email"

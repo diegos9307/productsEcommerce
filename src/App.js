@@ -8,6 +8,7 @@ import LandingPage from './pages/LandingPage';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import { DataProvider } from './components/DataContext';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -15,11 +16,13 @@ function App() {
       <DataProvider>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route exact path="/about" element={<About />} />
+          <Route element={<PrivateRoute />}>
+            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/detail/:cardId" element={<Detail />} />
+          </Route>
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
-          <Route exact path="/detail/:cardId" element={<Detail />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </DataProvider>

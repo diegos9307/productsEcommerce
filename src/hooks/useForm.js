@@ -31,13 +31,14 @@ export const useForm = (initialForm, validateForm) => {
     }
   };
   const handleSubmitLogin = (e) => {
-    e.preventDefault();
     setErrors(validateForm(form));
     if (Object.keys(errors).length === 0) {
-      alert('Enviando Formulario');
       axios
         .post('http://localhost:5000/login', form)
-        .then((response) => console.log(response.data))
+        .then((response) => {
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', true);
+        })
         .catch((err) => console.log(err));
     } else {
       return;
