@@ -1,5 +1,6 @@
-/* eslint-disable no-unused-vars */
 import { useForm } from '../hooks/useForm';
+import Loader from './Loader';
+import Message from './Message';
 
 const initialForm = {
   username: '',
@@ -52,6 +53,8 @@ const RegisterForm = () => {
     errors,
     loading,
     response,
+    backAnswer,
+    backError,
     handleChange,
     handleBlur,
     handleSubmitRegister,
@@ -63,7 +66,7 @@ const RegisterForm = () => {
         <h2 className="form__title">Crea tu cuenta</h2>
         <img src="https://cdn-icons-png.flaticon.com/512/476/476863.png" alt="Product" />
       </div>
-      <form className="form__content" action="/login" method="GET" onSubmit={handleSubmitRegister}>
+      <form className="form__content" onSubmit={handleSubmitRegister}>
         <input
           type="text"
           name="username"
@@ -142,6 +145,9 @@ const RegisterForm = () => {
           <input type="submit" value="Únete" className="btn" />
         </div>
       </form>
+      {loading && <Loader />}
+      {response && <Message msg={backAnswer} bgColor="#198754" />}
+      {backError && <Message msg={backAnswer} bgColor="#ff0000" />}
     </div>
   );
 };

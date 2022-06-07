@@ -10,7 +10,10 @@ export function DataProvider({ children }) {
   useEffect(() => {
     const getCard = async () => {
       const url = 'https://fakestoreapi.com/products';
-      const result = await axios.get(url);
+      const result = await axios
+        .get(url)
+        .then((res) => res)
+        .catch((err) => console.log(err));
       setCard(result.data);
     };
     getCard();

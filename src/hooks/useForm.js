@@ -1,12 +1,17 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
-import axios from 'axios';
+import { client } from '../utils/axiosInstance';
+import { useNavigate } from 'react-router-dom';
 
 export const useForm = (initialForm, validateForm) => {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
+  const [backError, setBackError] = useState(null);
+  const [backAnswer, setBackAnswer] = useState(null);
+
+  const navigation = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -19,27 +24,56 @@ export const useForm = (initialForm, validateForm) => {
     setErrors(validateForm(form));
   };
   const handleSubmitRegister = (e) => {
+    e.preventDefault();
     setErrors(validateForm(form));
     if (Object.keys(errors).length === 0) {
-      alert('Enviando Formulario');
-      axios
-        .post('http://localhost:5000/register', form)
-        .then((response) => console.log(response))
-        .catch((err) => console.log(err));
+      setLoading(true);
+      client
+        .post('/register', form)
+        .then((response) => {
+          setLoading(false);
+          setResponse(true);
+          setBackAnswer('Los Datos han sido enviados');
+          setTimeout(() => navigation('/login'), 3000);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+          setBackError(true);
+          setBackAnswer(err.response.data.error);
+          setTimeout(() => {
+            setBackError(false);
+            setForm(initialForm);
+          }, 3000);
+        });
     } else {
       return;
     }
   };
   const handleSubmitLogin = (e) => {
+    e.preventDefault();
     setErrors(validateForm(form));
     if (Object.keys(errors).length === 0) {
-      axios
-        .post('http://localhost:5000/login', form)
+      setLoading(true);
+      client
+        .post('/login', form)
         .then((response) => {
+          setLoading(false);
+          setResponse(true);
+          setBackAnswer('Los Datos han sido enviados');
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', true);
+          setTimeout(() => navigation('/home'), 3000);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          setLoading(false);
+          setBackError(true);
+          setBackAnswer(err.response.data.error);
+          setTimeout(() => {
+            setBackError(false);
+            setForm(initialForm);
+          }, 3000);
+        });
     } else {
       return;
     }
@@ -50,6 +84,8 @@ export const useForm = (initialForm, validateForm) => {
     errors,
     loading,
     response,
+    backAnswer,
+    backError,
     handleChange,
     handleBlur,
     handleChecked,

@@ -1,6 +1,7 @@
-/* eslint-disable no-unused-vars */
 import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
+import Loader from './Loader';
+import Message from './Message';
 
 const initialForm = {
   email: '',
@@ -24,10 +25,17 @@ const validationsForm = (form) => {
 };
 
 const LoginForm = () => {
-  const { form, errors, loading, response, handleChange, handleBlur, handleSubmitLogin } = useForm(
-    initialForm,
-    validationsForm
-  );
+  const {
+    form,
+    errors,
+    loading,
+    response,
+    backAnswer,
+    backError,
+    handleChange,
+    handleBlur,
+    handleSubmitLogin
+  } = useForm(initialForm, validationsForm);
   return (
     <div className="form__container">
       <div className="form__media">
@@ -37,11 +45,7 @@ const LoginForm = () => {
           alt="Product"
         />
       </div>
-      <form
-        className="form__content-login"
-        action="/home"
-        method="GET"
-        onSubmit={handleSubmitLogin}>
+      <form className="form__content-login" onSubmit={handleSubmitLogin}>
         <input
           type="email"
           name="email"
@@ -82,6 +86,9 @@ const LoginForm = () => {
           </div>
         </div>
       </form>
+      {loading && <Loader />}
+      {response && <Message msg={backAnswer} bgColor="#198754" />}
+      {backError && <Message msg={backAnswer} bgColor="#ff0000" />}
     </div>
   );
 };

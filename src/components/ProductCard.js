@@ -1,17 +1,12 @@
 import { useContext } from 'react';
 import Card from './Card';
 import DataContext from './DataContext';
+import Loader from './Loader';
 
 const ProductCard = () => {
   const { card } = useContext(DataContext);
   return (
-    <>
-      {card.length === 0 ? (
-        <h3>Cargando...</h3>
-      ) : (
-        card.map((el, index) => <Card key={index} el={el} />)
-      )}
-    </>
+    <>{card.length === 0 ? <Loader /> : card.map((el, index) => <Card key={index} el={el} />)}</>
   );
 };
 
