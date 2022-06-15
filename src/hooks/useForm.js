@@ -31,10 +31,14 @@ export const useForm = (initialForm, validateForm) => {
       client
         .post('/register', form)
         .then((response) => {
+          console.log(response);
           setLoading(false);
           setResponse(true);
-          setBackAnswer('Los Datos han sido enviados');
-          setTimeout(() => navigation('/login'), 3000);
+          setBackAnswer(response.data.message);
+          setTimeout(() => {
+            setResponse(false);
+            setForm(initialForm);
+          }, 3000);
         })
         .catch((err) => {
           console.log(err);
@@ -60,7 +64,7 @@ export const useForm = (initialForm, validateForm) => {
         .then((response) => {
           setLoading(false);
           setResponse(true);
-          setBackAnswer('Los Datos han sido enviados');
+          setBackAnswer('Login exitoso');
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', true);
           setTimeout(() => navigation('/home'), 3000);

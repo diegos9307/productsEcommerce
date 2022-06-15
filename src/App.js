@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import { DataProvider } from './components/DataContext';
 import PrivateRoute from './components/PrivateRoute';
+import ConfirmEmail from './pages/ConfirmEmail';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           </Route>
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
+          <Route exact path="/confirm/:emailToken" element={<ConfirmEmail />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </DataProvider>
