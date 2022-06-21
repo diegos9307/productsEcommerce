@@ -40,10 +40,7 @@ const LoginForm = () => {
     <div className="form__container">
       <div className="form__media">
         <h2 className="form__title-login">Inicia Sesión</h2>
-        <img
-          src="https://cdn-icons.flaticon.com/png/512/1026/premium/1026658.png?token=exp=1653365908~hmac=11df4d6c227c7954c74e03131c69395b"
-          alt="Product"
-        />
+        <img src="https://cdn-icons-png.flaticon.com/512/5167/5167400.png" alt="Product" />
       </div>
       <form className="form__content-login" onSubmit={handleSubmitLogin}>
         <input
