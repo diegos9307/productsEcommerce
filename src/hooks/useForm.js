@@ -31,7 +31,6 @@ export const useForm = (initialForm, validateForm) => {
       client
         .post('/register', form)
         .then((response) => {
-          console.log(response);
           setLoading(false);
           setResponse(true);
           setBackAnswer(response.data.message);

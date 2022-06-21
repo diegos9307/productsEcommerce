@@ -12,7 +12,6 @@ const Contador = ({ targetTime, active, setActive }) => {
 
   useEffect(() => {
     isFinished && setActive(true);
-    // console.log('Entro en useEffect');
   }, [isFinished]);
 
   return active ? <ExpiredTime /> : <ShowCounter minutes={minutes} seconds={seconds} />;
